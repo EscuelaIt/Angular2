@@ -1,0 +1,13 @@
+{
+	"name": "rest-crud",
+	"version": "1.0.0",
+	"description": "",
+	"main": "1-rest-crud.js",
+	"author": "@albertobasalo",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.15.1",
+		"cors": "^2.7.1",
+		"express": "^4.13.4"
+	}
+}

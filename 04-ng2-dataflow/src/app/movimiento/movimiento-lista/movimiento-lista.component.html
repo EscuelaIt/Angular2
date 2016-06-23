@@ -1,0 +1,26 @@
+<p>
+  movimiento-lista works!
+</p>
+<!--Sigue siendo la misma tabla, con un par de acciones asociadas-->
+<table>
+  <thead>
+    <tr>
+      <th (click)="ordenarPor('fecha')">Fecha</th>
+      <th>Tipo</th>
+      <th>Categoría</th>
+      <th (click)="ordenarPor('importe')">Importe</th>
+      <th>Borrar</th>
+      <th>Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of movimientosService.movimientos ">
+      <td>{{fecha(m.fecha) | date:"dd-MMM-yyyy"}}</td>
+      <td>{{m.tipo}}</td>
+      <td>{{m.categoria}}</td>
+      <td [ngClass]="{positivo: m.tipo=='Ingreso',negativo: m.tipo=='Gasto'}">{{m.importe | number}} €</td>
+      <td (click)="borrar(m)">X</td>
+      <td (click)="seleccionar(m)">E</td>
+    </tr>
+  </tbody>
+</table>

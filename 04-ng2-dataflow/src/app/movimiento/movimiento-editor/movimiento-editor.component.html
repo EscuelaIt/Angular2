@@ -1,0 +1,34 @@
+<p>
+  movimiento-editor works!
+</p>
+<!--Este componente ya sólo piensa en mostrar y guardar un movmiento-->
+<form>
+  <div>
+    <label for="tipo">Tipo:</label>
+    <input type="radio" [checked]="movimiento.tipo == 'Ingreso'" (change)="movimiento.tipo='Ingreso'" /> Ingreso
+    <input type="radio" [checked]="movimiento.tipo == 'Gasto'" (change)="movimiento.tipo='Gasto'" /> Gasto
+  </div>
+  <p></p>
+  <div>
+    <label for="categoria">Categoría:</label>
+    <select [(ngModel)]="movimiento.categoria" *ngIf="movimiento.tipo==='Ingreso'">
+      <option *ngFor="let categoria of movimientosService.categoriasIngreso" [value]="categoria"  >{{categoria}}</option>
+    </select>
+    <select [(ngModel)]="movimiento.categoria" *ngIf="movimiento.tipo==='Gasto'">
+      <option *ngFor="let categoria of movimientosService.categoriasGasto" [value]="categoria"  >{{categoria}}</option>
+    </select>
+  </div>
+  <p></p>
+  <div>
+    <label for="fecha">Fecha:</label>
+    <input type="date" [(ngModel)]="movimiento.fecha">
+  </div>
+  <p></p>
+  <div>
+    <label for="importe">Importe:</label>
+    <input type="number" [(ngModel)]="movimiento.importe">
+  </div>
+  <p></p>
+  <button (click)="guardarMovimiento()">Guardar Movimento</button>
+  <p></p>
+</form>

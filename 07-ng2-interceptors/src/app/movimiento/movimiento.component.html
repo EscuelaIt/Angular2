@@ -1,0 +1,8 @@
+<p>
+  movimiento works!
+</p>
+<!--<cf-movimiento-editor [movimientoParaEditar]="movimiento"></cf-movimiento-editor>-->
+<hr/>
+<cf-movimiento-lista (seleccionarMovimiento)="alSeleccionarMovimiento($event)"></cf-movimiento-lista>
+<hr/>
+<cf-movimiento-balance [ingresos]="totales.ingresos" [gastos]="totales.gastos"></cf-movimiento-balance>

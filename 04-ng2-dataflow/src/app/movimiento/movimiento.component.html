@@ -1,0 +1,22 @@
+<p>
+  movimiento works!
+</p>
+<!--Sustituimos el contenido original por componentes-->
+
+<!--este componente permite la edición de movimientos
+normalmente el alta, pero tambiñén la edición si recibe un objeto-->
+<movimiento-editor [movimientoParaEditar]="movimientoSeleccionado"></movimiento-editor>
+<hr/>
+<!--Suscripción al evento 'editarMovimiento' emitido desde el componente lista
+En sus argumentos recibimos parámetros que usamos para llamar a nuestro controlador-->
+<movimiento-lista (seleccionarMovimiento)="alSeleccionarMovimiento($event)"></movimiento-lista>
+<hr/>
+<!--El componente movimiento-balance debe enterarse de los cambios-->
+<movimiento-balance 
+  [ingresos]="movimientosService.ingresos" 
+  [gastos]="movimientosService.gastos">
+</movimiento-balance>
+<hr>
+<!--depuración visual en tiempo de desarrollo-->
+{{movimientosService.movimientos | json}}
+{{movimientoParaEditar | json}}

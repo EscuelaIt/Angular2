@@ -1,0 +1,17 @@
+<p>
+  movimiento-balance works!
+</p>
+<div class="positivo">
+  <span>Ingresos:</span>
+  <span>{{ingresos}}</span>
+</div>
+<p></p>
+<div class="negativo">
+  <span>Gastos:</span>
+  <span>{{gastos}}</span>
+</div>
+<p></p>
+<div [ngClass]="{positivo: ingresos>=gastos , negativo: ingresos<gastos}">
+  <span>Balance:</span>
+  <span>{{ingresos-gastos}}</span>
+</div>

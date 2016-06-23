@@ -1,0 +1,12 @@
+<!--menú de navegación-->
+<nav>
+  <a [routerLink]="['/']">Inicio</a>
+  <a [routerLink]="['/movimientos/','_']">Nuevo</a>
+  <a [routerLink]="['/acerca-de']">Acerca de</a>
+</nav>
+<h1>
+  {{title}}
+</h1>
+<!--quitamos el componente estático movimiento-->
+<!--incluimos un componente genérico que se cargará dinámicamente-->
+<router-outlet></router-outlet>

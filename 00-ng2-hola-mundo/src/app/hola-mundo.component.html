@@ -1,0 +1,22 @@
+<h1>
+  <!--Interpolación de variables definidas en el modelo del componente-->
+  {{ title }}
+</h1>
+<form>
+  <label>¿Cómo te llamas?</label>
+  <!--Enlace doble (lectura y escritura) entre la vista y el modelo-->
+  <input type="text" [(ngModel)]="aprendiz" />
+  <p>Bienvenido a Angular 2 {{ aprendiz }} </p>
+  
+  <!--Expresiones-->
+  <p>Soy capaz de multiplicar por {{1 * 2}} tus habilidades </p>
+  
+  <!--Eventos-->
+  <button (click)="visible=true">Saludar</button>
+  
+  <!--Propiedades-->
+  <p [hidden]="!visible">Hola Mundo!!!
+    <button (click)="decirAdios()">Adios</button>
+  </p>
+  
+</form>

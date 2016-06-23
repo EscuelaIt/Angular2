@@ -1,0 +1,26 @@
+<p>
+  movimiento-lista works!
+</p>
+<!--Sigue siendo la misma tabla, con un par de acciones asociadas-->
+<table>
+  <thead>
+    <tr>
+      <th >Fecha</th>
+      <th>Tipo</th>
+      <th>Categoría</th>
+      <th >Importe</th>
+      <th>Editor Local</th>
+      <th>Enlace</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of movimientos ">
+      <td>{{fecha(m.fecha) | date:"dd-MMM-yyyy"}}</td>
+      <td>{{m.tipo | capitalizar}}</td>
+      <td>{{m.categoria}}</td>
+      <td [ngClass]="{positivo: m.tipo=='Ingreso',negativo: m.tipo=='Gasto'}">{{m.importe | number}} €</td>
+      <td (click)="editar(m)">E</td>
+      <td ><a [routerLink]="['/movimientos',  m._id ]">{{m._id}}</a></td>
+    </tr>
+  </tbody>
+</table>
