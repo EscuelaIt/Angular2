@@ -1,0 +1,25 @@
+<p>
+  seguridad works!
+</p>
+<form [formGroup]="formulario">
+  <md-input placeholder="Dirección de e-mail" formControlName="email" dividerColor="{{emailControl.valid ? 'primary' :'warn'}}">
+    <md-hint align="end" *ngIf="emailControl.touched && !emailControl.valid">Necesitamos tu dirección de correo</md-hint>
+  </md-input>
+  <p></p>
+
+  <md-input placeholder="Una contraseña" formControlName="password" dividerColor="{{passwordControl.valid ? 'primary' :'warn'}}">
+    <md-hint align="end" *ngIf="passwordControl.touched && !passwordControl.valid">
+      <span *ngIf="passwordControl.errors.required">
+        Necesitamos una contraseña
+      </span>
+      <span *ngIf="passwordControl.errors.minlength">
+        Demasiado corta...
+      </span>
+    </md-hint>
+  </md-input>
+  <p></p>
+  <button md-button color="primary" type="submit" [disabled]="!formulario.valid" (click)="validarUsuario()">Entrar con estas credenciales
+  </button>
+  <button md-button color="accent" type="submit" [disabled]="!formulario.valid" (click)="registrarUsuario()">Soy nuevo, crear mi cuenta
+  </button>
+</form>

@@ -1,0 +1,36 @@
+<p>
+  movimientos works!
+</p>
+<form [formGroup]="formulario">
+  <md-radio-group formControlName="tipo">
+    <md-radio-button value="Ingreso">Ingreso</md-radio-button>
+    <md-radio-button value="Gasto">Gasto</md-radio-button>
+  </md-radio-group>
+  <p></p>
+  <md-input placeholder="Concepto" formControlName="concepto" dividerColor="{{conceptoControl.valid ? 'primary' :'warn'}}">
+    <md-hint align="end" *ngIf="conceptoControl.touched && !conceptoControl.valid">Necesitamos un Concepto</md-hint>
+  </md-input>
+  <p></p>
+  <md-input placeholder="Fecha de la operación" formControlName="fecha" dividerColor="{{fechaControl.valid ? 'primary' :'warn'}}">
+    <md-hint align="end" *ngIf="fechaControl.touched && !fechaControl.valid">Necesitamos una Fecha</md-hint>
+  </md-input>
+  <p></p>
+  <md-input placeholder="Importe de la operación" formControlName="importe" dividerColor="{{importeControl.valid ? 'primary' :'warn'}}">
+    <md-hint align="end" *ngIf="importeControl.touched && !importeControl.valid">Necesitamos un importe</md-hint>
+  </md-input>
+  <p></p>
+  <button md-button color="primary" type="submit" [disabled]="!formulario.valid" (click)="guardarMovimiento()">Guardar Movimiento
+  </button>
+</form>
+
+<hr>
+
+<md-list>
+  <md-list-item *ngFor="let movimiento of movimientos">
+    <h3 md-line> {{movimiento.tipo}} -- {{movimiento.concepto}} </h3>
+    <p md-line>
+      <span> {{movimiento.fecha}} </span>
+      <span> --- {{movimiento.importe}} </span>
+    </p>
+  </md-list-item>
+</md-list>
