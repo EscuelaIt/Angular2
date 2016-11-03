@@ -9,6 +9,7 @@ import { environment } from './environments/environment';
 // y por último la aplicación a leída desde el módulo raíz, llamado app por convenio.
 import { AppModule } from './app/';
 
+
 // condiciones para ejecutar en modo desarrollo o producción
 if (environment.production) {
   enableProdMode();
