@@ -7,6 +7,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 /** importación de otro módulo de funcionalidad*/ 
 import { MovimientosModule } from './movimientos/movimientos.module'
+
+/** To Do: crear un índice para la carpeta movimientos */
+
 // decorador que define un módulo
 @NgModule({
   declarations: [
@@ -24,3 +27,6 @@ import { MovimientosModule } from './movimientos/movimientos.module'
 // los módulos son clases contendoras 
 // habitualmente con poco o ningún código
 export class AppModule { }
+
+
+/** Crear módulo contactos */

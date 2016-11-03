@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-/** Importa un componente que declara y que luego exporta */
+/** Importae un componentes de este módulo */
 import { MovimientosComponent } from './movimientos.component';
 import { ListaComponent } from './lista/lista.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
@@ -13,9 +13,11 @@ import { NuevoComponent } from './nuevo/nuevo.component';
     MovimientosComponent,
     ListaComponent,
     NuevoComponent
-  ],// Componente que el mismo declara
+  ],// Componentes que se declara en el módulo de movimientos
   exports: [
     MovimientosComponent
-  ] // exporta los componentes importables desde otros módulos
+  ] // exporta el componente que quieras importarlo desde otros módulos
 })
 export class MovimientosModule { }
+
+/** To Do: comprobar exportaciones e importaciones */
