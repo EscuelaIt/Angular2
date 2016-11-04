@@ -1,0 +1,2 @@
+[Angular 2, la evolución de la plataforma](https://docs.google.com/presentation/d/1VyMGTwiM7HmNMdSCXrrYpHIej-Y8ZwZKCan7KMqvdCA/edit#slide=id.p)
+[Angular 2: Primeras impresiones](http://academia-binaria.com/angular2-primeras-impresiones/)

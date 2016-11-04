@@ -1,4 +1,3 @@
-[Angular2 la evolución de la plataforma](https://docs.google.com/presentation/d/1VyMGTwiM7HmNMdSCXrrYpHIej-Y8ZwZKCan7KMqvdCA/edit#slide=id.p)
 [Hola Mundo en Angular 2](http://academia-binaria.com/hola-mundo-en-angular-2/)
 
 
