@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { MovimientosModule } from './movimientos/movimientos.module';
+import { PepeComponent } from './pepe/pepe.component'
 
 /*
 angular.module('app',[
@@ -14,12 +16,14 @@ angular.module('app',[
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PepeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MovimientosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

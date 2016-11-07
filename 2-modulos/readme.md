@@ -11,9 +11,9 @@ Módulos de funcionalidad con Angular 2
 - `movimientos.component.html` : vista del componente movimientos
 - `app.module.ts` : importación del módulo de movimientos
 - `app.component.html` : incorporamos al componente movimientos
-- `ng g m movimientos/nuevo` : crea una carpeta con el componente nuevo dentro del modulo movimientos
+- `ng g c movimientos/nuevo` : crea una carpeta con el componente nuevo dentro del modulo movimientos
 - `movimientos.component.html` : incorporamos el componente nuevo como un elemento
-- `ng g m movimientos/lista` : lo mismo para el componente lista
+- `ng g c movimientos/lista` : lo mismo para el componente lista
 - `nuevo.component.html` : directivas para enlace de datos
 - `nuevo.component.ts` : modelo en clase controladora
 
