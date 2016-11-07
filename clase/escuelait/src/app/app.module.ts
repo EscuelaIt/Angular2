@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MovimientosModule } from './movimientos/movimientos.module';
+import { MovimientosModule } from './movimientos/';
 import { ClientesModule } from './clientes/clientes.module';
 import { PepeComponent } from './pepe/pepe.component'
 
