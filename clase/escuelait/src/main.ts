@@ -13,4 +13,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 import { sumar } from './util';
 
-var suma = sumar(5,5);
+const nombre: string = "EscuelaIt";
+const num1: number = 2;
+const num2: number = 7;
+var suma:number = sumar(num1, num2)
