@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MovimientosModule } from './movimientos/movimientos.module';
+import { ClientesModule } from './clientes/clientes.module';
 import { PepeComponent } from './pepe/pepe.component'
 
 /*
@@ -23,7 +24,8 @@ angular.module('app',[
     BrowserModule,
     FormsModule,
     HttpModule,
-    MovimientosModule
+    MovimientosModule,
+    ClientesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
