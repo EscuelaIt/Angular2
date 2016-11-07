@@ -23,6 +23,9 @@ export class NuevoComponent implements OnInit {
 
   constructor() { }
 
+  /**
+  * arranque del componente 
+  **/
   ngOnInit() {
     this.movimiento = {
       fecha: new Date(Date.now()),
@@ -32,7 +35,8 @@ export class NuevoComponent implements OnInit {
     this.cambioTipo();
   }
 
-   cambioTipo() {
+  cambioTipo() {
+    // recargar categorías cuando cambiamos de tipo de movimiento
     this.categorias = this.categoriasTipos.filter(c => c.type === this.movimiento.tipo);
   }
 

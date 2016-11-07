@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 /** Importae un componentes de este módulo */
@@ -7,7 +8,8 @@ import { NuevoComponent } from './nuevo/nuevo.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],// dependencias de otros módulos
   declarations: [
     MovimientosComponent,
