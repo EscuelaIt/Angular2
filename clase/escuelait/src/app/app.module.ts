@@ -28,7 +28,7 @@ angular.module('app',[
     ClientesModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, PepeComponent]
 })
 export class AppModule { }
 

@@ -8,7 +8,11 @@ import { SharedModule } from './../shared/shared.module'
     CommonModule,
     SharedModule
   ],
-  declarations: [ClientesComponent],
-  exports : [ClientesComponent]
+  declarations: [
+    ClientesComponent
+  ],
+  exports : [
+    ClientesComponent
+  ]
 })
 export class ClientesModule { }
