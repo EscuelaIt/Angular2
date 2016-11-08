@@ -1,4 +1,5 @@
 import { Component, Injectable, Input } from '@angular/core';
+import { PI , uno} from './constantes'
 
 @Component({
   selector: 'root',
@@ -6,10 +7,21 @@ import { Component, Injectable, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public mostrar: boolean = false;
+  private pi: number = PI;
+  public radio: number = uno;
+  public circunferencia: number = 2 * this.pi * this.radio;
+  public title = 'app works!';
+  public nombre: string = "Alberto";
+  public empresa: string = 'EscuelaIT';
+
+  calcularCircunferencia = function (valorEvento:number) {
+    this.radio = valorEvento;
+    this.circunferencia = 2 * this.pi * this.radio;
+  }
 }
 
-const pi = 3.14;
+
 
 /*
 angular.module('app').component('root',{

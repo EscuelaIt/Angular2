@@ -9,11 +9,11 @@ app
 
 # Árbol de Módulos 
 ## { imports:[array de modulos], declares:[array de componentes] , exports:[]}
-app [root, pepe]
-  movimientos [movimientos, nuevo, lista]
-    shared [shared]
-  clientes [clientes]
-    shared [shared]
+app [*root, -pepe]
+  movimientos [+movimientos, -nuevo, -lista]
+    shared [+shared]
+  clientes [+clientes]
+    shared [+shared]
 
 # Árbol de Componentes 
 root
