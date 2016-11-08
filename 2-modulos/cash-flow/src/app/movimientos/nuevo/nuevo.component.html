@@ -13,6 +13,11 @@
     <input type="text" [ngModel]="movimiento.fecha">
   </div>
   <div>
+    <label for="">Empresa</label>
+    <!--propiedad de solo lectura, y evento para escritura-->
+    <input type="text" [ngModel]="movimiento.empresa" (ngModelChange)="movimiento.empresa=$event">
+  </div>
+  <div>
     <label for="">Importe</label>
     <!--banana in a box, lectura y escritura-->
     <input type="number" [(ngModel)]="movimiento.importe">
