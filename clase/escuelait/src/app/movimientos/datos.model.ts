@@ -1,4 +1,4 @@
-export class Movimiento{
+export interface Movimiento{
   importe: number;
   fecha: Date;
   empresa: string;
