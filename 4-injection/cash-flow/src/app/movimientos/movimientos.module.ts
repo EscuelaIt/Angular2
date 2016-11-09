@@ -24,7 +24,8 @@ import { NuevoComponent } from './nuevo/nuevo.component';
     MovimientosComponent
   ], // exporta los componentes importables desde otros módulos
   providers: [
-    DatosService] // registro del servicio como un provvedor del módulo
+    DatosService
+  ] // registro del servicio como un proveedor del módulo
   
 })
 export class MovimientosModule { }

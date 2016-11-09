@@ -21,7 +21,7 @@ export class NuevoComponent implements OnInit {
 
   /** Al iniciarse el componente se cargan los datos*/
   ngOnInit() {
-    this.tipos = this.datosService.getTipos();
+    this.tipos = this.datosService.tipos;
     this.movimiento = this.datosService.getNuevoMovimiento();
     this.cambioTipo();
   }
