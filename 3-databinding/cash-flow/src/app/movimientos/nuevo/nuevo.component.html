@@ -1,0 +1,67 @@
+<!--(click) es un evento-->
+<button (click)="mostrar=true">Mostrar Formulario</button>
+<!--* directivas estrucutrales-->
+<div *ngIf="mostrar">
+  <div>
+    <label for="">Formulario</label>
+    <!--asignación de un valor a un elemento-->
+    <input type="text" ngModel="{{movimiento.fecha}}">
+  </div>
+  <div>
+    <label for="">Fecha</label>
+    <!--propiedad de solo lectura, desde el modelo hacia el elemento-->
+    <input type="text" [ngModel]="movimiento.fecha">
+  </div>
+  <div>
+    <label for="">Empresa</label>
+    <!--propiedad de solo lectura, y evento para escritura-->
+    <input type="text" [ngModel]="movimiento.empresa" (ngModelChange)="movimiento.empresa=$event">
+  </div>
+  <div>
+    <label for="">Importe</label>
+    <!--banana in a box, lectura y escritura-->
+    <input type="number" [(ngModel)]="movimiento.importe">
+  </div>
+  <div>
+    <label for="">Tipo</label>
+    <div *ngFor="let tipo of tipos">
+      <!--for es un atributo, requiere una sintaxis especial-->
+      <label [attr.for]="tipo.id">
+        <!--
+         [id]
+          es una propiedad se usa []
+          name define el grupo de opciones
+          [(ngModel)] el campo dónde se escribirá el valor seleccionado
+          [value]= de dónde toma valor esta opción
+          (ngModelChange) Qué ocurre cuando se cambia
+        -->
+        <input 
+          [id]="tipo.id" 
+          name="tiposGroup" 
+          [(ngModel)]="movimiento.tipo" 
+          [value]="tipo.id"
+          (ngModelChange)="cambioTipo()" 
+          type="radio">
+          {{ tipo.text }}
+      </label>
+    </div>
+  </div>
+  <!--cuando cambia el tipo se recargan las categorías-->
+  <div>
+    <label for="">Categoría</label>
+    <!--las opciones se cargan con *ngFor-->
+    <select name="categoria" [(ngModel)]="movimiento.categoria">
+        <option 
+            *ngFor="let categoria of categorias"
+            [value]="categoria.id"> 
+            {{categoria.text}} 
+        </option>
+    </select>
+  </div>
+  <div>
+    <button (click)="guardarMovimiento()">Guardar</button>
+  </div>
+  <div>
+    {{ movimiento | json}}
+  </div>
+</div>
