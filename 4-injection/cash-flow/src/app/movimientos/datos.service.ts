@@ -1,4 +1,3 @@
-import { MovimientosModule } from './../../../../../3-databinding/cash-flow/src/app/movimientos/movimientos.module';
 // Importación directa de tipos
 import { MaestroModel, MaestroTipoModel, MovimientoModel, Movimiento } from './datos.model';
 import { Injectable } from '@angular/core';
