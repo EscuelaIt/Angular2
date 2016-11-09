@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Perro } from './datos.model'
+import { Perro, Movimiento } from './datos.model'
 
 @Injectable()
 export class DatosService {
@@ -11,9 +11,9 @@ export class DatosService {
   constructor() { }
 
   crearMovimiento() {
-    return {
-      importe: 0,
-      fecha : new Date(Date.now())
-    }
+    let movimiento = new Movimiento();
+    movimiento.fecha = new Date(Date.now());
+    movimiento.empresa = "Escuela It";
+    return movimiento;
   }  
 }

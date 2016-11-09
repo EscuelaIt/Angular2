@@ -1,3 +1,11 @@
+export class Movimiento{
+  importe: number;
+  fecha: Date;
+  empresa: string;
+  tipo: number;
+  categoria: number;
+}
+
 
 
 
