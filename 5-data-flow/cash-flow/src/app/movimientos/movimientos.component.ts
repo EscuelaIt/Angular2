@@ -35,7 +35,7 @@ export class MovimientosComponent implements OnInit {
   }
 
   /** Cuando ocurre un cambio en el tipo de movimiento */  
-  cambioTipo() {
+  cambiarTipoDelMovimiento() {
     this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
     // Cambios en el tipo, crean cambios en la categoría
     this.movimiento.categoria = this.datosService.getCategoriaBase(this.movimiento.tipo);

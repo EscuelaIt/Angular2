@@ -25,7 +25,7 @@ export class NuevoComponent implements OnInit {
   /** propiedad para emitir el evento de guardado del movimiento actual */
   @Output() guardar: EventEmitter<Movimiento> = new EventEmitter<Movimiento>();
   /** propiedad para emitir el evento de cambio de tipo del movimiento actual */
-  @Output() cambiarTipo: EventEmitter<number> = new EventEmitter<number>();
+  @Output() usuarioCambiarTipo: EventEmitter<number> = new EventEmitter<number>();
 
   // ya no se usa datos service
   // es un componente tonto ()
@@ -35,8 +35,8 @@ export class NuevoComponent implements OnInit {
   
   // emisión de eventos para cambios o pedir guardar el movimiento
   /** cuando el usuario hace click en un radio button de tipo */
-  cambioTipo() {
-    this.cambiarTipo.emit(this.movimiento.tipo);
+  usuarioCambioRadioButton() {
+    this.usuarioCambiarTipo.emit(this.movimiento.tipo);
   }
   /** cuando el usuario hace click en el botón de guardado */
   guardarMovimiento() {
