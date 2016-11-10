@@ -1,6 +1,6 @@
-[Data Flow]()
+[Data Flow](http://academia-binaria.com/angular2-di-inyeccion-de-dependencias/)
 
-Comunicación entre componentes usando propiedades
+Comunicación entre componentes usando atributos
 
 ### Guía
 - `nuevo.component.ts` :  Eliminar la dependencia del servicio y sustituirla por comunicación con su contenedor
