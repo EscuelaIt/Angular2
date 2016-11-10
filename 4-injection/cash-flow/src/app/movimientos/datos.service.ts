@@ -35,11 +35,15 @@ export class DatosService {
   constructor() { }
   /** Crea un nuevo movimiento */
   getNuevoMovimiento(): MovimientoModel {
+    let fechaActual:Date = new Date(Date.now());
+    let tipoBaseId:number = this.tipos[0].id;
+    let categoriasBase: MaestroTipoModel[] = this.getCategoriasPorTipo(tipoBaseId);
+    let categoriaBaseId:number = categoriasBase[0].id;
     return new Movimiento(
-      new Date(Date.now()),
+      fechaActual,
       0,
-      this.tipos[0].id,
-      this.getCategoriasPorTipo(this.tipos[0].id)[0].id
+      tipoBaseId,
+      categoriaBaseId
     );
   }
   /** Devuelve la lista de tipos de movimientos */

@@ -13,7 +13,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NuevoComponent implements OnInit {
   // recibe datos vía propiedades
   /** propiedad para entrada de tipos de movimiento */
-  @Input() tipos: MaestroModel[] = [];
+  @Input()
+  tipos: MaestroModel[] = [];
   /** propiedad para entrada de categorias de movimiento */
   @Input() categorias: MaestroTipoModel[] = [];
   /** propiedad para entrada de un movimiento */
