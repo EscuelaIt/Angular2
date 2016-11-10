@@ -20,6 +20,7 @@ export class NuevoComponent implements OnInit {
   /** propiedad para entrada de un movimiento */
   @Input() movimiento: Movimiento;
 
+
   // emite eventos de cambio y de guardado
   /** propiedad para emitir el evento de guardado del movimiento actual */
   @Output() guardar: EventEmitter<Movimiento> = new EventEmitter<Movimiento>();
@@ -27,7 +28,7 @@ export class NuevoComponent implements OnInit {
   @Output() cambiarTipo: EventEmitter<number> = new EventEmitter<number>();
 
   // ya no se usa datos service
-  // es un componente tonto
+  // es un componente tonto ()
   constructor() { }
 
   ngOnInit() {  }

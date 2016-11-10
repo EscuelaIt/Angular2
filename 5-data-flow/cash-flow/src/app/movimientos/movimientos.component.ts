@@ -4,7 +4,7 @@ import { MaestroModel, MaestroTipoModel, Movimiento } from './datos.model';
 import { DatosService } from './datos.service';
 import { Observable } from 'rxjs/Observable';
 
-// Será un componente inteñignete, con acceso a datos
+// Será un componente inteligente (statefull), con acceso a datos
 @Component({
   selector: 'app-movimientos', // ojo al prefijo, por defecto app
   templateUrl: './movimientos.component.html',
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class MovimientosComponent implements OnInit {
   // Todos los datos necesarios se gestionana en el componente 
-  tipos: MaestroModel[] = [];
+  tiposEnElContenedor: MaestroModel[] = [];
   categorias: MaestroTipoModel[] = [];
   movimiento: Movimiento;
   movimientos: Movimiento[];
@@ -24,11 +24,14 @@ export class MovimientosComponent implements OnInit {
 
   /** Al arrancar, obtiene datos estáticos y suscripciones a otros vivos */  
   ngOnInit() {
-    this.tipos = this.datosService.getTipos();
+    this.tiposEnElContenedor = this.datosService.getTipos();
     this.movimiento = this.datosService.getNuevoMovimiento();
     this.cambioTipo();
     this.movimientos$ = this.datosService.getMovimientos$();
-    this.movimientos$.subscribe(d=>this.movimientos=d);
+    this.movimientos$.subscribe(d => this.movimientos = d);
+    this.movimientos$.subscribe(function (valorConcretoDelArrayDeMovimientos) {
+      this.movimientos = valorConcretoDelArrayDeMovimientos;
+    });
   }
 
   /** Cuando ocurre un cambio en el tipo de movimiento */  
