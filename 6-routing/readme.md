@@ -8,5 +8,8 @@ Comunicación entre componentes usando atributos
 - `contacto.module.ts` :
 - `app.module.ts` :
 - `app.component.html` :
-- `ng g c home` :    
+- `ng g c home` : 
+- `ng g c saludo` :  
+- `saludo.component.ts` :  
+- `saludo.component.html` :  
 ()
