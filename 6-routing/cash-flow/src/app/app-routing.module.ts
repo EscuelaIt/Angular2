@@ -1,3 +1,5 @@
+import { MovimientosComponent } from './../../../../4-injection/cash-flow/src/app/movimientos/movimientos.component';
+import { ContactoComponent } from './contacto/contacto.component';
 /** fichero para configurar el enrutado de un módulo
  *  en el proyecto inical no se usa
  *  es frecuente hacer la configuración directamente en el módulo raíz 
@@ -6,7 +8,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // definir las rutas
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: MovimientosComponent },
+  { path: 'contacto', component: ContactoComponent }
+];
 // configurar el modulo
 @NgModule({
   imports: [RouterModule.forRoot(routes)], // rutas para el módulo raíz
