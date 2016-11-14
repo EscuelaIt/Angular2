@@ -12,6 +12,7 @@ import { MovimientosComponent } from './movimientos/movimientos.component'
 import { ContactoModule } from './contacto/contacto.module';
 import { ContactoComponent } from './contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
+import { SaludoComponent } from './saludo/saludo.component';
 
 // definir las rutas
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'inicio', redirectTo: '' },
   { path: 'contacto', component: ContactoComponent },
   { path: 'movimientos', component: MovimientosComponent },
+  { path: 'saludo', component: SaludoComponent },
+  { path: 'saludo/:amigo', component: SaludoComponent },
   {
     path: '**',
     redirectTo: '',
@@ -30,7 +33,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SaludoComponent
   ], // cosas declaradas en este módulo
   imports: [
     BrowserModule,
