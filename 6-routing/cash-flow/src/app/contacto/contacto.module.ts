@@ -6,6 +6,7 @@ import { ContactoComponent } from './contacto.component';
   imports: [
     CommonModule
   ],
-  declarations: [ContactoComponent]
+  declarations: [ContactoComponent],
+  exports:[ContactoComponent]
 })
 export class ContactoModule { }

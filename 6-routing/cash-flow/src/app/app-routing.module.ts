@@ -1,4 +1,4 @@
-import { MovimientosComponent } from './../../../../4-injection/cash-flow/src/app/movimientos/movimientos.component';
+import { MovimientosComponent } from './movimientos/movimientos.component'
 import { ContactoComponent } from './contacto/contacto.component';
 /** fichero para configurar el enrutado de un módulo
  *  en el proyecto inical no se usa
@@ -18,4 +18,4 @@ const routes: Routes = [
   exports: [RouterModule], // esto es lo que el se verá desde el raíz
   providers: []
 })
-export class CacsFlowRoutingModule { }
+export class CashFlowRoutingModule { }
