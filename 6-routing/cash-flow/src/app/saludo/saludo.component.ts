@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,8 +13,8 @@ export class SaludoComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let parametros$ = this.activatedRoute.params;
-    this.activatedRoute.params.subscribe(parametros => {
+    let parametros$: Observable<any> = this.activatedRoute.params;
+    parametros$.subscribe(parametros => {
       this.amigo = parametros['amigo'] || 'anónimo';
     });
   }
