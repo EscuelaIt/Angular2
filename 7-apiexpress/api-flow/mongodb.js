@@ -1,9 +1,12 @@
-'use strict'
+/** librerias oficiales de MongoDB */
 const client = require('mongodb').MongoClient
 const ObjectID = require('mongodb').ObjectID
+/** Cadena de conexión, falta seguridad y obtenerla desde un config */
 const url = 'mongodb://localhost:27017/cashflow'
 
-
+/**
+ * Operaciones básicas con MongoDB
+ */
 module.exports = {
     connecting: connecting,
     colConnecting: colConnecting,
@@ -16,6 +19,11 @@ module.exports = {
     aggregating:  aggregating  
 }
 
+/**
+ * 
+ * USAR PORMESAS NATIVAS DE MONGO
+ * 
+ */
 
 function connecting() {
     let ejecutor = function(resolve, reject) {

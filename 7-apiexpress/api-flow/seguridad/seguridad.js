@@ -1,7 +1,7 @@
-'use strict'
-const mongodb = require('./mongodb')
-const colName = 'usuarios'
+/** Módulos de ayuda */
+const mongodb = require('./../mongodb')
 const jwt = require('./jwt')
+const colName = 'usuarios'
 
 module.exports = {
     usarSeguridad: usarSeguridad,

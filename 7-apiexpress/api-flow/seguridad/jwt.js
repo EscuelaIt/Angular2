@@ -1,4 +1,4 @@
-'use strict'
+/** librería de encriptado */
 const jwt = require('jsonwebtoken')
 
 const secreto = 'EscuelaIT'
