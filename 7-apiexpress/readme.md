@@ -13,4 +13,5 @@ Servidor de datos y consumo desde el cliente
 - `http-tools.service.ts`: funciones de ayuda para las comnicaciones
 - `datos.service.ts`: obtención de datos desde el api
 - `movimientos.component.ts`: consumo de observables en lugar de datos directos
+- `to do` : implementar seguridad cliente
 ()

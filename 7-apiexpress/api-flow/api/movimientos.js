@@ -2,7 +2,7 @@
 const mongodb = require('./../mongodb')
 const colName = 'movimientos'
 
-module.exports = (app, rutaMovimientos, rutaSaldos) => {
+module.exports = (app, rutaMovimientos) => {
        
     // Tendremos dos mega-rutas por recurso
     // una para ir a la colección

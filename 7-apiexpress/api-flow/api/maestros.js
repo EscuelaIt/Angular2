@@ -18,7 +18,7 @@ module.exports = (app, ruta) => {
         { id: 7, text: 'Impuestos', type: 2 }
     ];
 
-
+    /** Al recibir un GET ene sta ruta, respondemos con esta funcioón */
     app.get(`${ruta}/tipos`, (req, res) =>  res.json(tipos));
 
     app.get(`${ruta}/categorias`, (req, res) => res.json(categorias));

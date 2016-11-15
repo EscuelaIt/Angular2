@@ -8,7 +8,7 @@
  * @param {object} express - el propio framework express
  * @return configura la aplicación
  */
-module.exports.useMiddleware = (app, express) => {
+module.exports.useMiddleware = app => {
     const cors = require('cors');
     const bodyParser = require('body-parser')
     const seguridad = require('./seguridad/seguridad.js')
@@ -21,21 +21,21 @@ module.exports.useMiddleware = (app, express) => {
     // tanto en parámetros
     app.use(bodyParser.urlencoded({
         extended: true
-    }))
+    }));
     // como en el body
-    app.use(bodyParser.json())
+    app.use(bodyParser.json());
 
     // Otro uso común del middleware es la monitorización de la aplicación
     // Interceptor de llamadas
     app.use((req, res, next) =>{
-        console.log(`recibida petición: ${req.url}`)
+        console.log(`recibida petición: ${req.url}`);
         // Es muy importante continuar el flujo hacia la sigueinte función
-        next()
+        next();
         // En caso de no hacerlo, se colgaría la llamada
-    })
+    });
 
     // este middleware se encargará de vigilar la entrada    
-    seguridad.usarSeguridad(app, '/api/priv/')    
+    seguridad.usarSeguridad(app, '/api/priv/');
 }
 
 
