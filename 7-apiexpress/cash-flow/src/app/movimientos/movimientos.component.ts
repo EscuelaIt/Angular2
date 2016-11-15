@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class MovimientosComponent implements OnInit {
   // Todos los datos necesarios se gestionana en el componente 
-  tiposEnElContenedor: MaestroModel[] = [];
+  tipos: MaestroModel[] = [];
   categorias: MaestroTipoModel[] = [];
 
   movimiento: Movimiento;
@@ -26,16 +26,12 @@ export class MovimientosComponent implements OnInit {
   /** Al arrancar, obtiene datos estáticos y suscripciones a otros vivos */
   ngOnInit() {
     this.movimiento = this.datosService.getNuevoMovimiento();
-    this.datosService.getTipos().subscribe(r => {
-      this.tiposEnElContenedor = r.json();
-      this.movimientos$ = this.datosService.getMovimientos$();
-      this.datosService.getCategorias().subscribe(r => {
-        this.datosService.setCategorias(r.json());
+    this.movimientos$ = this.datosService.getMovimientos$();
+    this.movimientos$.subscribe(movimientos => this.movimientos = movimientos);
+    this.datosService.getTipos().subscribe(tipos => {
+      this.tipos = tipos;
+      this.datosService.getCategorias().subscribe(categorias => {
         this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
-        this.movimientos$.subscribe(d => this.movimientos = d);
-        this.movimientos$.subscribe(function (valorConcretoDelArrayDeMovimientos) {
-          this.movimientos = valorConcretoDelArrayDeMovimientos;
-        });
       });
     });
   }

@@ -13,6 +13,7 @@ import { ContactoModule } from './contacto/contacto.module';
 import { ContactoComponent } from './contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
 import { SaludoComponent } from './saludo/saludo.component';
+import { HttpToolsService } from './shared/http-tools.service'
 
 // definir las rutas
 const routes: Routes = [
@@ -44,7 +45,9 @@ const routes: Routes = [
     ContactoModule,
     RouterModule.forRoot(routes)
   ], // otros módulos que necesitamos para que este funcione
-  providers: [], // inyección de servicios comunes para la aplicación
+  providers: [
+    HttpToolsService
+  ],  // inyección de servicios comunes para la aplicación
   bootstrap: [AppComponent] // componente raíz para el arranque
 })
 // los módulos son clases contendoras 

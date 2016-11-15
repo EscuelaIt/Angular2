@@ -2,6 +2,10 @@ import { MaestroModel, MaestroTipoModel, MovimientoModel, Movimiento } from './d
 import { Injectable } from '@angular/core';
 // Importar objetos de la librería http
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+// importación de operadores de las reactive extensions
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch'
+import { HttpToolsService } from './../shared/http-tools.service'
 
 /**
  * Programación reactiva con observables
@@ -26,7 +30,7 @@ export class DatosService {
 
   // Reclamar la dependencia sobre http  
   // Se ha registrado en el módulo raíz, se supone uso común a varios servicios
-  constructor(private http: Http) {
+  constructor(private http: Http, private httpToolsService: HttpToolsService) {
   }
 
 
@@ -41,23 +45,22 @@ export class DatosService {
 
 
   // Se devuelven Observables de tipos concretos   
-  getTipos(): Observable<Response> {
+  getTipos(): Observable<MaestroModel[]> {
     // las llamadas devuelven observables
     // ocultan la definción de la ruta y demás
     return this.http
       .get(`${this.urlBase}/pub/maestros/tipos`)
+      .map(this.httpToolsService.obtenerDatos)
   }
 
   // Se devuelven Observables de tipos concretos   
-  getCategorias(): Observable<Response> {
+  getCategorias(): Observable<MaestroTipoModel[] > {
     // las llamadas devuelven observables
     // ocultan la definción de la ruta y demás
     return this.http
       .get(`${this.urlBase}/pub/maestros/categorias`)
-  }
-
-  setCategorias(categorias){
-    this.categorias = categorias;
+      .map(this.httpToolsService.obtenerDatos)
+      .map(categorias=>this.categorias=categorias)
   }
 
   getCategoriasPorTipo( tipo): MaestroTipoModel[] {
