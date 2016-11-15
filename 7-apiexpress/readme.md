@@ -1,15 +1,16 @@
-[Data Flow](http://academia-binaria.com/angular2-di-inyeccion-de-dependencias/)
+[API express]()
 
-Comunicación entre componentes usando atributos
+Servidor de datos y consumo desde el cliente
 
 ### Guía
-- `ng g m contacto` :  
-- `contacto.component.html` :  
-- `contacto.module.ts` :
-- `app.module.ts` :
-- `app.component.html` :
-- `ng g c home` : 
-- `ng g c saludo` :  
-- `saludo.component.ts` :  
-- `saludo.component.html` :  
+- `/api-flow` :  Carpeta para el servidor
+- `package.json` : Dependencias 
+- `index.js` : Arranque de la aplicación
+- `middleware.js` : configuración de la aplicación express
+- `/api`: carpeta con los rutas
+- `mongodb.js` : utilidad para acceder a mongodb
+- `/seguridad`: carpeta con utilidades para el control de acceso al api
+- `http-tools.service.ts`: funciones de ayuda para las comnicaciones
+- `datos.service.ts`: obtención de datos desde el api
+- `movimientos.component.ts`: consumo de observables en lugar de datos directos
 ()
