@@ -1,7 +1,7 @@
 'use strict'
 const client = require('mongodb').MongoClient
 const ObjectID = require('mongodb').ObjectID
-const url = 'mongodb://localhost:27017/backedge'
+const url = 'mongodb://localhost:27017/cashflow'
 
 
 module.exports = {
