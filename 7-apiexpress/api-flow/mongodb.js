@@ -1,3 +1,4 @@
+// ./mongod --dbpath ../data
 /** librerias oficiales de MongoDB */
 const client = require('mongodb').MongoClient
 const ObjectID = require('mongodb').ObjectID

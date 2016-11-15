@@ -29,7 +29,7 @@ module.exports.useMiddleware = app => {
     // Interceptor de llamadas
     app.use((req, res, next) =>{
         console.log(`recibida petición: ${req.url}`);
-        // Es muy importante continuar el flujo hacia la sigueinte función
+        // Es muy importante continuar el flujo hacia la siguiente función
         next();
         // En caso de no hacerlo, se colgaría la llamada
     });
