@@ -9,8 +9,8 @@ const url = 'mongodb://localhost:27017/cashflow'
  * Operaciones básicas con MongoDB
  */
 module.exports = {
-    connecting: connecting,
-    colConnecting: colConnecting,
+    //connecting: connecting,
+    //colConnecting: colConnecting,
     colConnectingXtrem: colName => new Promise((resolve, reject) => client.connect(url, (err, db) => err ? reject(err) : resolve(db.collection(colName)))),
     finding: finding,
     findingXtrem: {},
@@ -25,14 +25,14 @@ module.exports = {
  * TO DO: 
  * USAR PORMESAS NATIVAS DE MONGO
  * https://github.com/AgoraBinaria/ab-mongodb/blob/master/index.js
- * 
+ * mongoose
  */
 
 function connecting() {
-    let ejecutor = function(resolve, reject) {
+    let ejecutor = (resolve, reject) => {
         client.connect(url, (err, db) => err ? reject(err) : resolve(db))
-    }
-    return new Promise(ejecutor)
+    };
+    return new Promise(ejecutor);
 }
 
 function colConnecting(colName) {
@@ -81,5 +81,5 @@ function aggregating(colName, query) {
         this.colConnecting(colName)
             .then(colDb => colDb.aggregate(query).toArray((err, result) => err ? reject(err) : resolve(result)))
             .catch(err => reject(err))
-    })
+    });
 }

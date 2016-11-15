@@ -1,7 +1,7 @@
 import { MaestroModel, MaestroTipoModel, MovimientoModel, Movimiento } from './datos.model';
 import { Injectable } from '@angular/core';
 // Importar objetos de la librería http
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 // importación de operadores de las reactive extensions
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
@@ -38,8 +38,8 @@ export class DatosService {
     return new Movimiento(
       new Date(Date.now()),
       0,
-      0,
-      0
+      1,
+      1
     );
   }
 

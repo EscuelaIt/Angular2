@@ -28,7 +28,9 @@ export class MovimientosComponent implements OnInit {
     this.movimiento = this.datosService.getNuevoMovimiento();
     this.movimientos$ = this.datosService.getMovimientos$();
     this.movimientos$.subscribe(movimientos => this.movimientos = movimientos);
-    this.datosService.getTipos().subscribe(tipos => {
+    let tipos$ : Observable<any> = this.datosService.getTipos();
+    tipos$.subscribe(tipos => {
+      // this.tipos = res.json(); 
       this.tipos = tipos;
       this.datosService.getCategorias().subscribe(categorias => {
         this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
