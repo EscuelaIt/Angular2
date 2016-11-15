@@ -21,7 +21,9 @@ module.exports = {
 
 /**
  * 
+ * TO DO: 
  * USAR PORMESAS NATIVAS DE MONGO
+ * https://github.com/AgoraBinaria/ab-mongodb/blob/master/index.js
  * 
  */
 
