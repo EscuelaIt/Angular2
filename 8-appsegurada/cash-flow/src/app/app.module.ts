@@ -13,7 +13,9 @@ import { ContactoModule } from './contacto/contacto.module';
 import { ContactoComponent } from './contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
 import { SaludoComponent } from './saludo/saludo.component';
-import { HttpToolsService } from './shared/http-tools.service'
+import { HttpToolsService } from './shared/http-tools.service';
+import { SeguridadComponent } from './seguridad/seguridad.component';
+import { SeguridadService } from './seguridad/seguridad.service';
 
 // definir las rutas
 const routes: Routes = [
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: 'inicio', redirectTo: '' },
   { path: 'contacto', component: ContactoComponent },
   { path: 'movimientos', component: MovimientosComponent },
+  { path: 'seguridad', component: SeguridadComponent },
   { path: 'saludo', component: SaludoComponent },
   { path: 'saludo/:amigo', component: SaludoComponent },
   {
@@ -35,7 +38,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    SaludoComponent
+    SaludoComponent,
+    SeguridadComponent
   ], // cosas declaradas en este módulo
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ], // otros módulos que necesitamos para que este funcione
   providers: [
-    HttpToolsService
+    HttpToolsService,
+    SeguridadService
   ],  // inyección de servicios comunes para la aplicación
   bootstrap: [AppComponent] // componente raíz para el arranque
 })
