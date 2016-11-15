@@ -1,5 +1,7 @@
 import { MaestroModel, MaestroTipoModel, MovimientoModel, Movimiento } from './datos.model';
 import { Injectable } from '@angular/core';
+// Importar objetos de la librería http
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 /**
  * Programación reactiva con observables
@@ -15,37 +17,51 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DatosService {
 
-  private tipos: MaestroModel[] = [
-    { id: 1, text: 'Ingreso' },
-    { id: 2, text: 'Gasto' }];
-  private categoriasTipos: MaestroTipoModel[] = [
-    { id: 1, text: 'Nómina', type: 1 },
-    { id: 2, text: 'Ventas', type: 1 },
-    { id: 3, text: 'Intereses', type: 1 },
-    { id: 4, text: 'Hipoteca', type: 2 },
-    { id: 5, text: 'Compras', type: 2 },
-    { id: 6, text: 'Domicialiaciones', type: 2 },
-    { id: 7, text: 'Impuestos', type: 2 }];
+  private urlBase: string = 'http://localhost:3030/api'
+  private categorias: MaestroTipoModel[] = [];
   private movimientos: MovimientoModel[] = [];
   // comunicación de eventos mediante observables
   private movimientos$: Subject<MovimientoModel[]> = new Subject<MovimientoModel[]>();
-  constructor() { }
+  
+
+  // Reclamar la dependencia sobre http  
+  // Se ha registrado en el módulo raíz, se supone uso común a varios servicios
+  constructor(private http: Http) {
+  }
+
 
   getNuevoMovimiento(): MovimientoModel {
     return new Movimiento(
       new Date(Date.now()),
       0,
-      this.getTipoBase(),
-      this.getCategoriaBase(this.getTipoBase())
+      0,
+      0
     );
   }
 
-  getTipos(): MaestroModel[] {
-    return this.tipos;
+
+  // Se devuelven Observables de tipos concretos   
+  getTipos(): Observable<Response> {
+    // las llamadas devuelven observables
+    // ocultan la definción de la ruta y demás
+    return this.http
+      .get(`${this.urlBase}/pub/maestros/tipos`)
   }
 
-  getCategoriasPorTipo(tipo): MaestroTipoModel[] {
-    return this.categoriasTipos.filter(c => c.type === tipo);
+  // Se devuelven Observables de tipos concretos   
+  getCategorias(): Observable<Response> {
+    // las llamadas devuelven observables
+    // ocultan la definción de la ruta y demás
+    return this.http
+      .get(`${this.urlBase}/pub/maestros/categorias`)
+  }
+
+  setCategorias(categorias){
+    this.categorias = categorias;
+  }
+
+  getCategoriasPorTipo( tipo): MaestroTipoModel[] {
+    return this.categorias.filter(c => c.type === tipo);
   }
 
   postMovimiento(movimiento: Movimiento) {
@@ -61,6 +77,5 @@ export class DatosService {
   }
 
   // funciones auxiliares  
-  private getTipoBase = () => this.tipos[0].id;
   getCategoriaBase = (tipoId) => this.getCategoriasPorTipo(tipoId)[0].id;
 }

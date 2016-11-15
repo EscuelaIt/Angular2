@@ -14,27 +14,35 @@ export class MovimientosComponent implements OnInit {
   // Todos los datos necesarios se gestionana en el componente 
   tiposEnElContenedor: MaestroModel[] = [];
   categorias: MaestroTipoModel[] = [];
+  
   movimiento: Movimiento;
   movimientos: Movimiento[];
-  movimientos$ : Observable<Movimiento[]>;
+  movimientos$: Observable<Movimiento[]>;
 
   // las dependencias se declaran como parámetros del constructor
   /** Depende del servicio de datos */
   constructor(private datosService: DatosService) { }
 
-  /** Al arrancar, obtiene datos estáticos y suscripciones a otros vivos */  
+  /** Al arrancar, obtiene datos estáticos y suscripciones a otros vivos */
   ngOnInit() {
     this.movimiento = this.datosService.getNuevoMovimiento();
-    this.tiposEnElContenedor = this.datosService.getTipos();
-    this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
-    this.movimientos$ = this.datosService.getMovimientos$();
-    this.movimientos$.subscribe(d => this.movimientos = d);
-    this.movimientos$.subscribe(function (valorConcretoDelArrayDeMovimientos) {
-      this.movimientos = valorConcretoDelArrayDeMovimientos;
+    this.datosService.getTipos().subscribe(r => {
+      this.tiposEnElContenedor = r.json();
+      this.movimientos$ = this.datosService.getMovimientos$();
+      this.datosService.getCategorias().subscribe(r => {
+        this.datosService.setCategorias(r.json());
+        this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
+        this.movimientos$.subscribe(d => this.movimientos = d);
+        this.movimientos$.subscribe(function (valorConcretoDelArrayDeMovimientos) {
+        this.movimientos = valorConcretoDelArrayDeMovimientos;
+      });
+      });
+      
     });
+
   }
 
-  /** Cuando ocurre un cambio en el tipo de movimiento */  
+  /** Cuando ocurre un cambio en el tipo de movimiento */
   cambiarTipoDelMovimiento() {
     this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
     // Cambios en el tipo, crean cambios en la categoría
