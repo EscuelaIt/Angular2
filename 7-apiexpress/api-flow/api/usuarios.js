@@ -1,9 +1,14 @@
-'use strict'
-const seguridad = require('./seguridad.js')
+/**
+ * Permite que un usuario se registre
+ * Es una inserción de un objeto en el recuros de usuarios
+ */
+// Usa la librería de seguridad
+const seguridad = require('./../seguridad/seguridad.js')
 module.exports = (app, ruta) => {
     // Gestión de usuarios:  registro
     app.route(ruta)
         .post((req, res) => {
+            // inserción de un registro de usuario
             let usuario = req.body
             seguridad.existeUsuario(usuario)
                 .then(result => {
