@@ -14,7 +14,7 @@ export class MovimientosComponent implements OnInit {
   // Todos los datos necesarios se gestionana en el componente 
   tiposEnElContenedor: MaestroModel[] = [];
   categorias: MaestroTipoModel[] = [];
-  
+
   movimiento: Movimiento;
   movimientos: Movimiento[];
   movimientos$: Observable<Movimiento[]>;
@@ -34,12 +34,10 @@ export class MovimientosComponent implements OnInit {
         this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
         this.movimientos$.subscribe(d => this.movimientos = d);
         this.movimientos$.subscribe(function (valorConcretoDelArrayDeMovimientos) {
-        this.movimientos = valorConcretoDelArrayDeMovimientos;
+          this.movimientos = valorConcretoDelArrayDeMovimientos;
+        });
       });
-      });
-      
     });
-
   }
 
   /** Cuando ocurre un cambio en el tipo de movimiento */
@@ -50,7 +48,6 @@ export class MovimientosComponent implements OnInit {
   }
   /** Cuando se quiere guardar un movimiento */
   guardarMovimiento() {
-    console.log(`Guardando ${JSON.stringify(this.movimiento)}`);
     this.datosService.postMovimiento(this.movimiento);
   }
 }
