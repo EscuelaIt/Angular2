@@ -1,0 +1,15 @@
+{
+  "name": "api-flow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "@albertobasalo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongodb": "^2.2.11"
+  }
+}
