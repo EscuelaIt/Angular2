@@ -1,6 +1,13 @@
 <p>
   lista works!
 </p>
-<!--el pipe async ya no se usa, pues la propiedad mueve los datos -->
-<!--los pipes se pueden entubar-->
-{{ movimientos | json }}
+<md-list>
+  <md-list-item *ngFor="let movimiento of movimientos">
+    <h3 md-line> {{movimiento.fecha | date}} </h3>
+    <p md-line>
+      <span> {{movimiento.importe}} </span>
+      <span *ngIf="movimiento.tipo==1"> <md-icon>system_update_alt</md-icon> </span>
+      <span *ngIf="movimiento.tipo==2"> <md-icon >launch</md-icon> </span>
+    </p>
+  </md-list-item>
+</md-list>
