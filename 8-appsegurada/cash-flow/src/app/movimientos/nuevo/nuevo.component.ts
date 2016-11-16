@@ -40,7 +40,6 @@ export class NuevoComponent implements OnInit {
   }
   /** cuando el usuario hace click en el botón de guardado */
   guardarMovimiento() {
-    console.log('El usuario quiere guardar');
     this.guardar.emit(this.movimiento);
   }
 }

@@ -26,16 +26,19 @@ export class MovimientosComponent implements OnInit {
   /** Al arrancar, obtiene datos estáticos y suscripciones a otros vivos */
   ngOnInit() {
     this.movimiento = this.datosService.getNuevoMovimiento();
-    this.movimientos$ = this.datosService.getMovimientos$();
-    this.movimientos$.subscribe(movimientos => this.movimientos = movimientos);
+    this.refrescarMovimientos();
     let tipos$ : Observable<any> = this.datosService.getTipos();
     tipos$.subscribe(tipos => {
-      // this.tipos = res.json(); 
       this.tipos = tipos;
       this.datosService.getCategorias().subscribe(categorias => {
         this.categorias = this.datosService.getCategoriasPorTipo(this.movimiento.tipo);
       });
     });
+  }
+
+  refrescarMovimientos(){
+    this.movimientos$ = this.datosService.getMovimientos$();
+    this.movimientos$.subscribe(movimientos => this.movimientos = movimientos);
   }
 
   /** Cuando ocurre un cambio en el tipo de movimiento */
@@ -46,7 +49,7 @@ export class MovimientosComponent implements OnInit {
   }
   /** Cuando se quiere guardar un movimiento */
   guardarMovimiento() {
-    console.log('Recibida petición para guardar');
-    this.datosService.postMovimiento(this.movimiento).subscribe(result=>this.datosService.getMovimientos$.subscribe());
+    this.datosService.postMovimiento(this.movimiento)
+      .subscribe(result=>this.refrescarMovimientos());
   }
 }
