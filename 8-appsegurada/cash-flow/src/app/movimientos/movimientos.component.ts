@@ -46,6 +46,7 @@ export class MovimientosComponent implements OnInit {
   }
   /** Cuando se quiere guardar un movimiento */
   guardarMovimiento() {
-    this.datosService.postMovimiento(this.movimiento);
+    console.log('Recibida petición para guardar');
+    this.datosService.postMovimiento(this.movimiento).subscribe(result=>this.datosService.getMovimientos$.subscribe());
   }
 }
