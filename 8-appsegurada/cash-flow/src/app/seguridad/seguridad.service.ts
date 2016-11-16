@@ -29,7 +29,7 @@ export class SeguridadService {
     console.log(body);
     let options = this.httpToolsService.configurarCabeceras()
     return this.http
-        .post(`${urlBase}/pub/usuarios`, body, options)
+        .post(`${this.urlBase}/pub/usuarios`, body, options)
         .map(this.httpToolsService.obtenerDatos)
         .map(this.httpToolsService.guardarCredenciales)
         .catch(this.httpToolsService.tratarErrores)
