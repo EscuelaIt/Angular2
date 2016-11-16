@@ -25,17 +25,6 @@ export class SeguridadService {
   registrar(credenciales) {
     let ruta = `${this.urlBase}/pub/usuarios`;
     return this.comunicar(credenciales, ruta);
-    /*
-    // la llamada de seguridad debería devolvernos credenciales
-    // parte de nuestra labor será guardarla para futuros usos
-    let body = JSON.stringify(credenciales)
-    console.log(body);
-    let options = this.httpToolsService.configurarCabeceras()
-    return this.http
-        .post(`${this.urlBase}/pub/usuarios`, body, options)
-        .map(this.httpToolsService.obtenerDatos)
-        .map(this.httpToolsService.guardarCredenciales)
-        .catch(this.httpToolsService.tratarErrores)*/
   }
 
   entrar(credenciales) {
