@@ -1,0 +1,16 @@
+<p>
+  seguridad works!
+</p>
+<section >
+    <label for="">Email</label>
+    <input type="email" [(ngModel)]="usuario.email">
+    <p>
+    </p>
+    <label for="">Password</label>
+    <input type="password" [(ngModel)]="usuario.password">
+    <p>
+    </p>
+    <button (click)="registrarUsuario()">Registrar nuevo usuario</button>
+    <button (click)="entrarUsuario()">Entrar como miembro</button>
+</section>
+{{ mensaje }}

@@ -1,0 +1,15 @@
+<p>
+  movimientos works!
+</p>
+<!--[popiedades]="para enviar información a componentes hijos"-->
+<!--(eventos)="para recibir información de componentes hijos"-->
+<app-nuevo 
+  [tipos]="tipos" 
+  [categorias]="categorias" 
+  [movimiento]="movimiento" 
+  (guardar)="guardarMovimiento()"
+  (usuarioCambiarTipo)="cambiarTipoDelMovimiento()">
+</app-nuevo>
+<app-lista 
+  [movimientos]="movimientos">
+</app-lista>
