@@ -10,10 +10,9 @@ module.exports = (app, rutaMovimientos) => {
     app.route(rutaMovimientos)
         .get((req, res) => {
             // lectura de todos los movimientos
-            let promesa = mongodb.finding(colName, { usuario: req.usuario });
-            promesa.
+            mongodb.finding(colName, { usuario: req.usuario })
                 .then(result => result.length > 0 ? res.json(result) : res.status(204).send())
-                .catch(err => resError(err, res));
+                .catch(err => resError(err, res))
         })
         .post((req, res) => {
             // inserción de un movimiento

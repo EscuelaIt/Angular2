@@ -9,8 +9,8 @@ const url = 'mongodb://localhost:27017/cashflow'
  * Operaciones básicas con MongoDB
  */
 module.exports = {
-    //connecting: connecting,
-    //colConnecting: colConnecting,
+    connecting: connecting,
+    colConnecting: colConnecting,
     colConnectingXtrem: colName => new Promise((resolve, reject) => client.connect(url, (err, db) => err ? reject(err) : resolve(db.collection(colName)))),
     finding: finding,
     findingXtrem: {},
