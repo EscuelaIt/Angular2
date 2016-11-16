@@ -3,6 +3,6 @@
 Servidor de datos y consumo desde el cliente
 
 ### Guía
-- `/cash-flow` :  Actualizar comentarios
+- `/cash-flow` :  
 - `to do` : editor/borrador de un movimiento 
 ()
