@@ -23,9 +23,6 @@ export class DatosService {
 
   private urlBase: string = 'http://localhost:3030/api'
   private categorias: MaestroTipoModel[] = [];
-  private movimientos: MovimientoModel[] = [];
-  // comunicación de eventos mediante observables
-  private movimientos$: Subject<MovimientoModel[]> = new Subject<MovimientoModel[]>();
   
 
   // Reclamar la dependencia sobre http  
@@ -68,15 +65,38 @@ export class DatosService {
   }
 
   postMovimiento(movimiento: Movimiento) {
-    let movimientoClone: Movimiento = Object.assign({}, movimiento);
-    this.movimientos.push(movimientoClone);
-    // genera un nuevo valor en el observable
-    this.movimientos$.next(this.movimientos);
+    /**
+     * primero preparación de datos para su envío
+     * después suscripción y operaciones sobre la respuesta
+     */
+    let body = JSON.stringify(movimiento)
+    let options = this.httpToolsService.configurarCabeceras()
+    if (movimiento._id && movimiento._id !=='_') {
+      return this.http
+        .put(`${this.urlBase}/priv/movimientos/${movimiento._id}`, body, options)
+        .catch(this.httpToolsService.tratarErrores)
+    }
+    else {
+      return this.http
+        .post(`${this.urlBase}/priv/movimientos`, body, options)
+        .catch(this.httpToolsService.tratarErrores)
+    }
   }
 
   getMovimientos$(): Observable<MovimientoModel[]> {
-    // se comporta como un observable
-    return this.movimientos$.asObservable();
+    let options = this.httpToolsService.configurarCabeceras()
+    return this.http
+      .get(`${this.urlBase}/priv/movimientos`,options)
+      .map(this.httpToolsService.obtenerDatos)
+      .catch(this.httpToolsService.tratarErrores)
+  }  
+
+  getMovimientoPor_Id$(_id) : Observable<MovimientoModel>{
+    let options = this.httpToolsService.configurarCabeceras()
+    return this.http
+      .get(`${this.urlBase}/priv/movimientos/${_id}`,options)
+      .map(this.httpToolsService.obtenerDatos)
+      .catch(this.httpToolsService.tratarErrores)
   }
 
   // funciones auxiliares  
