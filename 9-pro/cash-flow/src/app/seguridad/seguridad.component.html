@@ -2,15 +2,11 @@
   seguridad works!
 </p>
 <section >
-    <label for="">Email</label>
-    <input type="email" [(ngModel)]="usuario.email">
-    <p>
-    </p>
-    <label for="">Password</label>
-    <input type="password" [(ngModel)]="usuario.password">
-    <p>
-    </p>
-    <button (click)="registrarUsuario()">Registrar nuevo usuario</button>
-    <button (click)="entrarUsuario()">Entrar como miembro</button>
+    <md-input placeholder="Email" type="email" [(ngModel)]="usuario.email"></md-input>
+    <br>
+    <md-input placeholder="Password" type="password" [(ngModel)]="usuario.password"></md-input>
+    <br>
+    <button md-button (click)="registrarUsuario()">Registrar nuevo usuario</button>
+    <button md-button (click)="entrarUsuario()">Entrar como miembro</button>
 </section>
 {{ mensaje }}

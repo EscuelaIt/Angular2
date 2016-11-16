@@ -9,11 +9,13 @@ import { CommonModule } from '@angular/common';
 import { MovimientosComponent } from './movimientos.component';
 import { ListaComponent } from './lista/lista.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
-
+// material design
+import { MaterialModule } from '@angular/material';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule ],// dependencias de otros módulos
+    FormsModule,
+    MaterialModule],// dependencias de otros módulos
   declarations: [
     MovimientosComponent,
     ListaComponent,

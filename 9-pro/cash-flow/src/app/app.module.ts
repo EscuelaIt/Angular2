@@ -16,6 +16,8 @@ import { SaludoComponent } from './saludo/saludo.component';
 import { HttpToolsService } from './shared/http-tools.service';
 import { SeguridadComponent } from './seguridad/seguridad.component';
 import { SeguridadService } from './seguridad/seguridad.service';
+// material design
+import { MaterialModule } from '@angular/material';
 
 // definir las rutas
 const routes: Routes = [
@@ -47,7 +49,8 @@ const routes: Routes = [
     HttpModule,
     MovimientosModule, // el módulo de movimientos,
     ContactoModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MaterialModule.forRoot()
   ], // otros módulos que necesitamos para que este funcione
   providers: [
     HttpToolsService,

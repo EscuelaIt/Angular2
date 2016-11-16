@@ -1,14 +1,22 @@
-<nav>
-   <a routerLink="/" >Cash - Flow</a>
-   <a routerLink="/movimientos" >Movimientos</a>
-   <a routerLink="/contacto" >Contacto</a>
-   <a routerLink="/saludo" >Saludo</a>
-</nav>
-<h1>
-  <!--enlace con propiedades del componente-->
-  {{title}}
-</h1>
-<!--el componente movimientos desaparece-->
-<!--<app-movimientos></app-movimientos>-->
-
-<router-outlet></router-outlet>
+<md-sidenav-layout>
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    <ul>
+      <li><a routerLink="/">Cash - Flow</a></li>
+      <li><a routerLink="/movimientos">Movimientos</a></li>
+      <li><a routerLink="/contacto">Contacto</a></li>
+      <li><a routerLink="/saludo">Saludo</a></li>
+    </ul>
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+    <span>Cash Flow</span>
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+  <h1>
+    <!--enlace con propiedades del componente-->
+    {{title}}
+  </h1>
+  <router-outlet></router-outlet>
+</md-sidenav-layout>
