@@ -12,9 +12,7 @@ export class HttpToolsService {
   private static _router: Router
   private static _token: any
   
-  constructor(
-    private router: Router
-  ) {
+  constructor(private router: Router ) {
     HttpToolsService._router=this.router
   }
   // puesto que los envíos requieren siempre la misma configuración
