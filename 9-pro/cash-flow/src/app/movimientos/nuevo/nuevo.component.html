@@ -1,7 +1,7 @@
 <label for="">Formulario</label>
-<md-input put type="text" ngModel="Nuevo Movimiento"></md-input>
+<md-input  type="text" ngModel="Nuevo Movimiento"></md-input>
 <br>
-<md-input placeholder="Fecha" type="text" [ngModel]="movimiento.fecha"></md-input>
+<md-input placeholder="Fecha" type="date" [ngModel]="movimiento.fecha"></md-input>
 <br>
 <md-input placeholder="Importe" type="number" [(ngModel)]="movimiento.importe"></md-input>
 <br>
@@ -22,7 +22,7 @@
 </select>
 <br>
 <div>
-  <button md-button (click)="guardarMovimiento()">Guardar</button>
+  <button md-button color="primary" (click)="guardarMovimiento()">Guardar</button>
 </div>
 <br>
 <md-card>

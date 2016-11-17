@@ -1,5 +1,5 @@
 <md-sidenav-layout>
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
+  <md-sidenav #sidenav [mode]="modoSidebar" class="app-sidenav">
     <ul>
       <li><a routerLink="/">Cash - Flow</a></li>
       <li><a routerLink="/movimientos">Movimientos</a></li>
@@ -9,10 +9,11 @@
   </md-sidenav>
   <md-toolbar color="primary">
     <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
+      <i class="material-icons app-toolbar-menu">face</i>
     </button>
     <span>Cash Flow</span>
     <span class="app-toolbar-filler"></span>
+    <i class="material-icons app-toolbar-menu">https</i>
   </md-toolbar>
   <h1>
     <!--enlace con propiedades del componente-->

@@ -3,7 +3,7 @@
 Servidor de datos y consumo desde el cliente
 
 ### Guía
-- `package.json` :  
+- `package.json` : Material Design 
 - `app.module.ts` : imports MaterialModule 
 - `app.component.html` : md-sidenav-layout md-sidenav md-toolbar #sidenav 
 - `seguridad.component.html` : md-input md-button 
