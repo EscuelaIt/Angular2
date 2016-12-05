@@ -26,7 +26,7 @@ export class MovimientosComponent implements OnInit {
   ngOnInit() {
     this.tiposEnElContenedor = this.datosService.getTipos();
     this.movimiento = this.datosService.getNuevoMovimiento();
-    this.cambioTipo();
+    this.cambiarTipoDelMovimiento();
     this.movimientos$ = this.datosService.getMovimientos$();
     this.movimientos$.subscribe(d => this.movimientos = d);
     this.movimientos$.subscribe(function (valorConcretoDelArrayDeMovimientos) {
